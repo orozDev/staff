@@ -1,0 +1,10 @@
+Django
+django-ckeditor
+django-cleanup
+django-cors-headers
+django-filter
+django-js-asset
+django-resized
+djangorestframework
+Pillow
+pytz

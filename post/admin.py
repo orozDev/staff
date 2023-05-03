@@ -20,6 +20,7 @@ class PostAdmin(admin.ModelAdmin):
     list_display = ('id', 'title', 'author', 'get_image')
     list_display_links = ('id', 'title',)
     search_fields = ('title', 'content',)
+    list_filter = ('author',)
     readonly_fields = ('get_image',)
     form = PostAdminFrom
 
