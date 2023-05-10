@@ -13,19 +13,10 @@ class PermissionByAction(object):
     def get_permissions(self):
         permission_classes = api_settings.DEFAULT_PERMISSION_CLASSES
 
-        if self.action == "list":
-            permission_classes = self.permission_classes_by_action['list']
-
-        elif self.action == "create":
-            permission_classes = self.permission_classes_by_action['create']
-
-        elif self.action == "update" or self.action == "partial_update":
+        if self.action == 'partial_update':
             permission_classes = self.permission_classes_by_action['update']
+        else:
+            permission_classes = self.permission_classes_by_action[self.action]
 
-        elif self.action == "retrieve":
-            permission_classes = self.permission_classes_by_action['retrieve']
-
-        elif self.action == "destroy":
-            permission_classes = self.permission_classes_by_action['destroy']
 
         return [permission() for permission in permission_classes]
